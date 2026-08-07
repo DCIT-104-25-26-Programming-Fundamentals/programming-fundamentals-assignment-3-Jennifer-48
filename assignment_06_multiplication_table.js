@@ -59,4 +59,76 @@
 // YOUR CODE BELOW — remove the // symbols from the scaffold and fill it in
 // =============================================================================
 
+```javascript
+const readlineSync = require("readline-sync");
+
+// =============================================================================
+// PART A — Single Table
+// =============================================================================
+
+function printSingleTable(number) {
+    console.log(`\nMultiplication Table for ${number}:`);
+
+    for (let i = 1; i <= 12; i++) {
+        console.log(`${number}  x  ${i}  =  ${number * i}`);
+    }
+}
+
+// =============================================================================
+// PART B — Tables from 1 to N
+// =============================================================================
+
+function printTablesUpToN(n) {
+    for (let number = 1; number <= n; number++) {
+        console.log(`\nMultiplication Table for ${number}:`);
+
+        for (let i = 1; i <= 12; i++) {
+            console.log(`${number}  x  ${i}  =  ${number * i}`);
+        }
+
+        if (number < n) {
+            console.log("---------------------------");
+        }
+    }
+}
+
+// =============================================================================
+// Main Function
+// =============================================================================
+
+function main() {
+
+    // -------------------------------------------------------------------------
+    // PART A — Single Table
+    // -------------------------------------------------------------------------
+
+    const number = readlineSync.questionInt(
+        "Enter a number for the multiplication table: "
+    );
+
+    if (number <= 0) {
+        console.log("Error: Number must be a positive integer.");
+        return;
+    }
+
+    printSingleTable(number);
+
+    // -------------------------------------------------------------------------
+    // PART B — Bonus: Tables from 1 to N
+    // -------------------------------------------------------------------------
+
+    const n = readlineSync.questionInt(
+        "\nEnter N to print tables from 1 to N: "
+    );
+
+    if (n <= 0) {
+        console.log("Error: N must be a positive integer.");
+        return;
+    }
+
+    printTablesUpToN(n);
+}
+
+main();
+```
 
